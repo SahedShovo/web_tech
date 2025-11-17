@@ -4,22 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library Management System</title>
-    <link rel="stylesheet" href="library.css">  
+    <link rel="stylesheet" href="library.css">
 </head>
 
 <body>
 
     <h1>Library Management System</h1>
 
-    <label>Book Title:</label>
+    <label>Book Title</label>
     <input type="text" id="booktitle" placeholder="Enter Book Title">
 
-    <label>Publication Year:</label>
+    <label>Publication Year</label>
     <input type="text" id="publicationyear" placeholder="Enter Publication Year">
 
     <button type="button" onclick="addBook()">Add Book</button>
 
-   
+
     <table id="bookTable">
         <tr>
             <th>Title</th>
@@ -33,12 +33,15 @@
             let year = document.getElementById("publicationyear").value.trim();
             let currentYear = new Date().getFullYear();
 
+
             let titleRegex = /^[A-Za-z]+$/;
 
             if (!titleRegex.test(title)) {
                 alert("Title must contain letters only (no space, no numbers).");
                 return;
             }
+
+           
             if (!(year >= 1900 && year <= currentYear && year.length === 4)) {
                 alert("Year must be a valid 4-digit number between 1900 and " + currentYear);
                 return;
@@ -59,6 +62,7 @@
                 row.style.backgroundColor = "#90ee90"; 
             }
 
+            
             document.getElementById("booktitle").value = "";
             document.getElementById("publicationyear").value = "";
         }
